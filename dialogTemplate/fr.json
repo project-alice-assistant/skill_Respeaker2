@@ -1,0 +1,7 @@
+{
+    "skill": "Respeaker2",
+    "icon": "time",
+    "description": "Let's you configure the gpio button available on the device",
+    "slotTypes": [],
+    "intents": []
+}
