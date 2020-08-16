@@ -12,4 +12,3 @@ Let's you configure the gpio button available on the device
     fr
     de
     it
-
