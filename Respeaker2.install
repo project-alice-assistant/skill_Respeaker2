@@ -1,8 +1,8 @@
 {
     "name": "Respeaker2",
-    "version": "0.0.1",
-    "icon": "fab fa-battle-net",
-    "category": "undefined",
+    "version": "1.0.0",
+    "icon": "far fa-hand-point-down",
+    "category": "automation",
     "author": "Psychokiller1888",
     "maintainers": [],
     "desc": "Let's you configure the gpio button available on the device",
@@ -17,8 +17,8 @@
         "lang": [
             "en",
             "fr",
-            "de"
-        ],
-        "asrArbitraryCapture": true
+            "de",
+            "it"
+        ]
     }
 }

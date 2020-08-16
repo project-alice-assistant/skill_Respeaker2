@@ -1,0 +1,10 @@
+{
+	"buttonAction": {
+		"defaultValue": "toggleMute",
+		"dataType": "list",
+		"isSensitive": false,
+		"values": {"Mute/Unmute": "toggleMute", "Start listening": "startListening", "Stop speaking":  "stopSpeaking"},
+		"description": "What should happen when the button is pressed?",
+		"category": "system"
+	}
+}

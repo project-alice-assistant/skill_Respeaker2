@@ -11,4 +11,5 @@ Let's you configure the gpio button available on the device
     en
     fr
     de
+    it
 
