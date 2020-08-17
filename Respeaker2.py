@@ -15,7 +15,6 @@ class Respeaker2(AliceSkill):
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setwarnings(False)
 		GPIO.setup(self.GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
-		self._muted = False
 		super().__init__()
 
 
@@ -24,7 +23,12 @@ class Respeaker2(AliceSkill):
 		GPIO.add_event_detect(self.GPIO_PIN, GPIO.FALLING, callback=self.onButton, bouncetime=300)
 
 
-	def onButton(self, channel: int):
+	def onStop(self):
+		super().onStop()
+		GPIO.remove_event_detect(self.GPIO_PIN)
+
+
+	def onButton(self, _channel: int):
 		action = self.getConfig('buttonAction')
 
 		try:
@@ -35,12 +39,7 @@ class Respeaker2(AliceSkill):
 
 
 	def toggleMute(self):
-		if self._muted:
-			self.WakewordManager.enableEngine()
-		else:
-			self.WakewordManager.disableEngine()
-
-		self._muted = not self._muted
+		self.WakewordManager.toggleEngine()
 
 
 	def startListening(self):
