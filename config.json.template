@@ -1,10 +1,33 @@
 {
-	"buttonAction": {
+	"buttonAction1Click": {
+		"defaultValue": "startListening",
+		"dataType": "list",
+		"isSensitive": false,
+		"values": {"Mute/Unmute": "toggleMute", "Start listening": "startListening", "Stop speaking":  "stopSpeaking"},
+		"description": "What should happen when the button is pressed once?",
+		"category": "system"
+	},
+	"buttonAction2Click": {
 		"defaultValue": "toggleMute",
 		"dataType": "list",
 		"isSensitive": false,
 		"values": {"Mute/Unmute": "toggleMute", "Start listening": "startListening", "Stop speaking":  "stopSpeaking"},
-		"description": "What should happen when the button is pressed?",
+		"description": "What should happen when the button is pressed twice?",
+		"category": "system"
+	},
+	"buttonAction3Click": {
+		"defaultValue": "stopSpeaking",
+		"dataType": "list",
+		"isSensitive": false,
+		"values": {"Mute/Unmute": "toggleMute", "Start listening": "startListening", "Stop speaking":  "stopSpeaking"},
+		"description": "What should happen when the button is pressed three times?",
+		"category": "system"
+	},
+	"clickInterval": {
+		"defaultValue": 0.5,
+		"dataType": "float",
+		"isSensitive": false,
+		"description": "How fast the different clicks must happen.",
 		"category": "system"
 	}
 }

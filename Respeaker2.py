@@ -15,12 +15,14 @@ class Respeaker2(AliceSkill):
 		GPIO.setmode(GPIO.BCM)
 		GPIO.setwarnings(False)
 		GPIO.setup(self.GPIO_PIN, GPIO.IN, pull_up_down = GPIO.PUD_UP)
+		self._clickCounter = 0
+		self._timer = None
 		super().__init__()
 
 
 	def onStart(self):
 		super().onStart()
-		GPIO.add_event_detect(self.GPIO_PIN, GPIO.FALLING, callback=self.onButton, bouncetime=300)
+		GPIO.add_event_detect(self.GPIO_PIN, GPIO.FALLING, callback=self.onButton, bouncetime=100)
 
 
 	def onStop(self):
@@ -29,7 +31,15 @@ class Respeaker2(AliceSkill):
 
 
 	def onButton(self, _channel: int):
-		action = self.getConfig('buttonAction')
+		self._clickCounter = min(self._clickCounter + 1, 3)
+		if not self._timer:
+			self._timer = self.ThreadManager.newTimer(interval=self.getConfig('clickInterval'), func=self.action)
+
+
+	def action(self):
+		action = self.getConfig(f'buttonAction{self._clickCounter}Click')
+		self._timer = None
+		self._clickCounter = 0
 
 		try:
 			method = getattr(self, action)
