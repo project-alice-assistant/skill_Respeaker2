@@ -54,7 +54,7 @@ class Respeaker2(AliceSkill):
 
 	def startListening(self):
 		if not self.getAliceConfig('deviceName') in self.DialogManager.sessionsBySites:
-			self.DialogManager.onHotword(self.getAliceConfig('deviceName'))
+			self.DialogManager.onHotword(self.getAliceConfig('uuid'))
 
 
 	def stopSpeaking(self):
